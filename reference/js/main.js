@@ -1,31 +1,40 @@
+//javascript has access to the DOM
+
+//initializing variables
 var before = document.getElementById("before");
 var liner = document.getElementById("liner");
 var command = document.getElementById("typer"); 
 var textarea = document.getElementById("texter"); 
 var terminal = document.getElementById("terminal");
 
+//same here two but the variable names could be better
 var git = 0;
 var pw = false;
 let pwd = false;
 var commands = [];
 
+//settimeout is a function that will run a function after a certain amount of time
 setTimeout(function() {
   loopLines(banner, "", 80);
   textarea.focus();
 }, 100);
 
+//What is this event listener for?
 window.addEventListener("keyup", enterKey);
 
+//printing messages
 console.log(
   "%cYou hacked my password!ðŸ˜ ",
   "color: #04ff00; font-weight: bold; font-size: 24px;"
 );
 console.log("%cPassword: '" + password + "' - I wonder what it does?ðŸ¤”", "color: grey");
 
-//init
+//intialising text area
 textarea.value = "";
-command.innerHTML = textarea.value;
+command.innerHTML = textarea.value; //what is this about?
 
+//function for when key is entered -- what is e?
+//function should be broken down - maybe use switch case
 function enterKey(e) {
   if (e.keyCode == 181) {
     document.location.reload(true);
@@ -77,6 +86,8 @@ function enterKey(e) {
   }
 }
 
+//function for commands and what is happening though?
+//basically all the commands
 function commander(cmd) {
   switch (cmd.toLowerCase()) {
     case "help":
@@ -129,7 +140,6 @@ function commander(cmd) {
     case "banner":
       loopLines(banner, "", 80);
       break;
-    // socials
     case "youtube":
       addLine("Opening YouTube...", "color2", 80);
       newTab(youtube);
@@ -156,12 +166,14 @@ function commander(cmd) {
   }
 }
 
+//this is the newTab function to open new window
 function newTab(link) {
   setTimeout(function() {
     window.open(link, "_blank");
   }, 500);
 }
 
+//not sure hows it working and what is happening
 function addLine(text, style, time) {
   var t = "";
   for (let i = 0; i < text.length; i++) {
@@ -183,7 +195,9 @@ function addLine(text, style, time) {
   }, time);
 }
 
-function loopLines(name, style, time) {
+//not sure
+function loopLines(name, style, time) 
+{
   name.forEach(function(item, index) {
     addLine(item, style, index * time);
   });

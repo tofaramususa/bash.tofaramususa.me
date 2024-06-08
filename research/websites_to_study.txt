@@ -1,0 +1,28 @@
+## Resources for Learning JavaScript and Web Development
+
+### MDN Web Docs
+This is a comprehensive resource for JavaScript and web development topics. It's a great place to learn about the `document.getElementById` method and other DOM manipulation techniques.
+- [MDN Web Docs](https://developer.mozilla.org/)
+
+### W3Schools
+This is another good resource for learning JavaScript and web development. It's more beginner-friendly than MDN and has interactive examples.
+- [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)
+
+### JavaScript.info
+This is a detailed guide to JavaScript that covers everything from basics to advanced topics.
+- [JavaScript.info](https://javascript.info/)
+
+### Eloquent JavaScript
+This is a free online book that provides a deep dive into JavaScript, including working with the DOM.
+- [Eloquent JavaScript](https://eloquentjavascript.net/)
+
+### Stack Overflow
+If you have specific questions or run into problems, Stack Overflow is a community of developers that can provide help.
+- [Stack Overflow](https://stackoverflow.com/)
+
+### GitHub
+You can find many open-source projects on GitHub. Reading the source code of these projects can help you understand how to structure your own code.
+- [GitHub](https://github.com/)
+
+### Youtube
+- https://www.youtube.com/watch?v=KtYby2QN0kQ

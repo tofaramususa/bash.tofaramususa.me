@@ -1,3 +1,5 @@
+//this is where the personal information is
+//just arrays of commands but take note these contain html tags so it's not just plain text
 var youtube = "https://www.youtube.com/fknight/";
 var twitter = "https://www.twitter.com/forrestpknight/";
 var password = "fkcodes";
