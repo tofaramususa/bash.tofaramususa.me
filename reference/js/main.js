@@ -1,11 +1,12 @@
 //javascript has access to the DOM
+//Make use of code function and not the KeyCode as its been depracated
 
 //initializing variables
-var before = document.getElementById("before");
-var liner = document.getElementById("liner");
-var command = document.getElementById("typer"); 
-var textarea = document.getElementById("texter"); 
-var terminal = document.getElementById("terminal");
+var before = document.getElementById("before"); //anchor tag inside terminal div inside body
+var liner = document.getElementById("liner"); //liner div that has the
+var command = document.getElementById("typer");  //span element inside the 
+var textarea = document.getElementById("texter"); //this is the text area which also has event handlers for the text
+var terminal = document.getElementById("terminal"); //terminal div inside body div
 
 //same here two but the variable names could be better
 var git = 0;
@@ -19,7 +20,7 @@ setTimeout(function() {
   textarea.focus();
 }, 100);
 
-//What is this event listener for?
+
 window.addEventListener("keyup", enterKey);
 
 //printing messages
@@ -33,35 +34,39 @@ console.log("%cPassword: '" + password + "' - I wonder what it does?ðŸ¤”", 
 textarea.value = "";
 command.innerHTML = textarea.value; //what is this about?
 
-//function for when key is entered -- what is e?
+//function for when key is entered -- what is e - stands for event?
 //function should be broken down - maybe use switch case
 function enterKey(e) {
-  if (e.keyCode == 181) {
+
+	//does not seem necessary here
+  if (e.keyCode == 181) { 
     document.location.reload(true);
   }
-  if (pw) {
-    let et = "*";
-    let w = textarea.value.length;
-    command.innerHTML = et.repeat(w);
-    if (textarea.value === password) {
-      pwd = true;
-    }
-    if (pwd && e.keyCode == 13) {
-      loopLines(secret, "color2 margin", 120);
-      command.innerHTML = "";
-      textarea.value = "";
-      pwd = false;
-      pw = false;
-      liner.classList.remove("password");
-    } else if (e.keyCode == 13) {
-      addLine("Wrong password", "error", 0);
-      command.innerHTML = "";
-      textarea.value = "";
-      pw = false;
-      liner.classList.remove("password");
-    }
-  } else {
-    if (e.keyCode == 13) {
+  //this is all about a  password
+//   if (pw) {
+//     let et = "*";
+//     let w = textarea.value.length;
+//     command.innerHTML = et.repeat(w);
+//     if (textarea.value === password) {
+//       pwd = true;
+//     }
+//     if (pwd && e.keyCode == 13) {
+//       loopLines(secret, "color2 margin", 120);
+//       command.innerHTML = "";
+//       textarea.value = "";
+//       pwd = false;
+//       pw = false;
+//       liner.classList.remove("password");
+//     } else if (e.keyCode == 13) {
+//       addLine("Wrong password", "error", 0);
+//       command.innerHTML = "";
+//       textarea.value = "";
+//       pw = false;
+//       liner.classList.remove("password");
+//     }
+//   } else {
+    if (e.keyCode == 13) //this is enter
+	{
       commands.push(command.innerHTML);
       git = commands.length;
       addLine("visitor@fkcodes.com:~$ " + command.innerHTML, "no-animation", 0);
@@ -69,12 +74,14 @@ function enterKey(e) {
       command.innerHTML = "";
       textarea.value = "";
     }
-    if (e.keyCode == 38 && git != 0) {
+    if (e.keyCode == 38 && git != 0) 
+	{
       git -= 1;
       textarea.value = commands[git];
       command.innerHTML = textarea.value;
     }
-    if (e.keyCode == 40 && git != commands.length) {
+    if (e.keyCode == 40 && git != commands.length) 
+	{
       git += 1;
       if (commands[git] === undefined) {
         textarea.value = "";
@@ -83,7 +90,7 @@ function enterKey(e) {
       }
       command.innerHTML = textarea.value;
     }
-  }
+//   }
 }
 
 //function for commands and what is happening though?

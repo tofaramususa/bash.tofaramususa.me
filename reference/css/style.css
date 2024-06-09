@@ -25,13 +25,7 @@ body {
 	left: -1000px;
 	position: absolute;
   }
-
-  /* added this for placeholder text and may remove */
-  textarea::placeholder {
-	color: #888;
-	font-style: italic;
-	font-size: 14px;
-  }
+  
   /* This is for b tag */
   b {
 	font-weight: bold;
@@ -54,7 +48,7 @@ body {
 	text-decoration: blink;
 	animation: blinker 1s linear infinite;
   }
-  /* What are key frames */
+  /* This is the part that makes it flash 0 - blinker */
   @keyframes blinker {
 	50% {
 	  opacity: 0;
@@ -89,7 +83,7 @@ body {
 	  opacity: 1;
 	}
   }
-  /* Cursor End  -- ??? */
+  
   p {
 	display: block;
 	line-height: 1.3em;
