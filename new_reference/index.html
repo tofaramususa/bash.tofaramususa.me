@@ -1,11 +1,9 @@
+
 <!DOCTYPE html>
 <html>
-	<!-- l think header contains information about google analytics 
-	- Also the title of the page and reference to css files and favicon
-	-->
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ9TR5T9S2"></script> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ9TR5T9S2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -20,14 +18,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="icon" type="image/x-icon" href="img/fav-icon.png" />
   </head>
-  <!-- The body contans 2 main divs -->
   <body>
     <div id="terminal">
-      <a id="before"></a>
+		<!-- This is were the elements are added  in the terminal div-->
+		 <!-- There are inserted before the before tag -->
+      <a id="before">
+	  </a>
     </div>
-	<!--This is the main div for inputing commands -->
     <div id="command" onclick="$('texter').focus();">
-		<!-- Main hooks and event-driven with a lot of javascript-->
       <textarea
         type="text"
         id="texter"
@@ -37,16 +35,11 @@
         onkeypress="typeIt(this, event);"
         autofocus
       >
-	
 	</textarea>
-	<!--  This seems to be about the cursor that we see on the screen-->
-	<!-- What is the span for? it's empty -->
       <div id="liner">
-        <span id="typer"></span>
-		<b class="cursor" id="cursor">█</b>
+        <span id="typer"></span><b class="cursor" id="cursor">█</b>
       </div>
     </div>
-	<!-- Why where these scripts put at the bottom? -->
     <script src="js/caret.js"></script>
     <script src="js/commands.js"></script>
     <script src="js/main.js"></script>
