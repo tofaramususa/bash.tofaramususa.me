@@ -9,25 +9,28 @@
 	<!-- <link rel="icon" type="image/x-icon" href="img/favicon.ico"> -->
 </head>
 <body>
+	<!-- 1st DIV -->
 	<div id="terminal">
-		<a id="before"></a>
+		<a id="before">Can you see this</a>
 	</div>
-	<div id="command" onclick="$('texter').focus();">
-		<textarea
-		type="text"
-		id="texter"
+	<!-- 2nd DIV -->
+	<div id="terminal-input-div" onclick="$('texter').focus();">
+		<!-- DIV_ELEMENT 1 -->
+		<textarea type="text" id="terminal-input"
 		onkeyup="recordKey(this, event)"
 		onkeydown="recordKey(this, event);
-					moveCursor(this.value.length, event);"
-		onkeypress="recordKey(this, event);"
+					moveIt(this.value.length, event)"
+		onkeypress="recordKey(this, event)"
 		autofocus
 		>
 		</textarea>
+		<!--  -->
 		<div id ="liner">
-			<span id="typer"></span>
-			<b class="cursor" id="cursor">█</b>
+			<span id="typer">Where is this supposed to be?</span>
+			<b class="cursor" id="cursor"></b>
 		</div>
 	</div>
+	<!-- The Javascript Functions -->
 	<script src="js/data.js"></script>
 	<script src="js/utils.js"></script>
 	<script src="js/main.js"></script>

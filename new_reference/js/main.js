@@ -1,103 +1,90 @@
-//javascript has access to the DOM
-//Make use of code function and not the KeyCode as its been depracated
+var before = document.getElementById("before");
+var liner = document.getElementById("liner");
+var typer_id = document.getElementById("typer"); 
+var textarea = document.getElementById("texter"); 
+var terminal = document.getElementById("terminal");
 
-//initializing variables
-var before = document.getElementById("before"); //anchor tag inside terminal div inside body
-var liner = document.getElementById("liner"); //liner div that has the
-var command = document.getElementById("typer");  //span element inside the 
-var textarea = document.getElementById("texter"); //this is the text area which also has event handlers for the text
-var terminal = document.getElementById("terminal"); //terminal div inside body div
-
-//same here two but the variable names could be better
-var git = 0;
+var index = 0;
 var pw = false;
 let pwd = false;
 var commands = [];
 
-//settimeout is a function that will run AFTER 100mS when the window is loaded
+//this is to get at the start,
 setTimeout(function() {
   loopLines(banner, "", 80);
   textarea.focus();
 }, 100);
 
+window.addEventListener("keyup", enterKey); //this is to listen for keyup events and then run the enterKey function
 
-window.addEventListener("keyup", enterKey);
-
-//printing messages
-console.log
-(
+console.log(
   "%cYou hacked my password!ðŸ˜ ",
   "color: #04ff00; font-weight: bold; font-size: 24px;"
 );
 console.log("%cPassword: '" + password + "' - I wonder what it does?ðŸ¤”", "color: grey");
 
-//intialising text area
-textarea.value = "";
-command.innerHTML = textarea.value; //what is this about?
+//init
+textarea.value = ""; //starts as empty string
+typer_id.innerHTML = textarea.value; //okay so this sets the inner thml to the textarea value
 
-//function for when key is entered -- what is e - stands for event?
-//function should be broken down - maybe use switch case
 function enterKey(e) {
-
-	//does not seem necessary here
-  if (e.keyCode == 181) { 
-    document.location.reload(true);
+  if (e.keyCode == 181) 
+	{
+    document.location.reload(true); //reload the page
   }
-//   this is all about  a  password
-  if (pw) {
+  if (pw) { //if the password is true
     let et = "*";
     let w = textarea.value.length;
-    command.innerHTML = et.repeat(w);
+    typer_id.innerHTML = et.repeat(w);
     if (textarea.value === password) {
       pwd = true;
     }
     if (pwd && e.keyCode == 13) {
       loopLines(secret, "color2 margin", 120);
-      command.innerHTML = "";
+      typer_id.innerHTML = "";
       textarea.value = "";
       pwd = false;
       pw = false;
       liner.classList.remove("password");
     } else if (e.keyCode == 13) {
       addLine("Wrong password", "error", 0);
-      command.innerHTML = "";
+      typer_id.innerHTML = "";
       textarea.value = "";
       pw = false;
       liner.classList.remove("password");
     }
-  } else {
-    if (e.keyCode == 13) //this is enter
-	{
-      commands.push(command.innerHTML);
-      git = commands.length;
-      addLine("visitor@fkcodes.com:~$ " + command.innerHTML, "no-animation", 0);
-      commander(command.innerHTML.toLowerCase());
-      command.innerHTML = "";
-      textarea.value = "";
+  } else 
+  {
+	
+    if (e.keyCode == 13)  //this is when the element is pressed
+		{
+      commands.push(typer_id.innerHTML); //adds to list of commands
+      index = commands.length; //gets the total commands
+      addLine("visitor@fkcodes.com:~$ " + typer_id.innerHTML, "no-animation", 0); //this adds a 
+      commander(typer_id.innerHTML.toLowerCase()); //executes the command
+      typer_id.innerHTML = ""; //sets the typer_id to empty and is executed first 
+      textarea.value = ""; //sets it to empty string
     }
-    if (e.keyCode == 38 && git != 0) 
-	{
-      git -= 1;
-      textarea.value = commands[git];
-      command.innerHTML = textarea.value;
+	//this is for the up and down arrow keys
+    if (e.keyCode == 38 && index != 0) {
+      index -= 1;
+      textarea.value = commands[index];
+      typer_id.innerHTML = textarea.value;
     }
-    if (e.keyCode == 40 && git != commands.length) 
-	{
-      git += 1;
-      if (commands[git] === undefined) {
+    if (e.keyCode == 40 && index != commands.length) {
+      index += 1;
+      if (commands[index] === undefined) {
         textarea.value = "";
       } else {
-        textarea.value = commands[git];
+        textarea.value = commands[index];
       }
-      command.innerHTML = textarea.value;
+      typer_id.innerHTML = textarea.value;
     }
-}
+  }
 }
 
-//function for commands and what is happening though?
-//basically all the commands
-function commander(cmd) 
-{
+//this is the command executor that based on input will execute a command 
+function commander(cmd) {
   switch (cmd.toLowerCase()) {
     case "help":
       loopLines(help, "color2 margin", 80);
@@ -149,6 +136,7 @@ function commander(cmd)
     case "banner":
       loopLines(banner, "", 80);
       break;
+    // socials
     case "youtube":
       addLine("Opening YouTube...", "color2", 80);
       newTab(youtube);
@@ -166,7 +154,7 @@ function commander(cmd)
       newTab(instagram);
       break;
     case "github":
-      addLine("Opening GitHub...", "color2", 0);
+      addLine("Opening github...", "color2", 0);
       newTab(github);
       break;
     default:
@@ -175,44 +163,42 @@ function commander(cmd)
   }
 }
 
-//this is the newTab function to open new window
-function newTab(link)
-{
-  setTimeout(function()
-  {
+//open a new tab after 500ms
+function newTab(link) {
+  setTimeout(function() {
     window.open(link, "_blank");
   }, 500);
 }
 
-//not sure hows it working and what is happening
-function addLine(text, style, time) 
-{
+//
+function addLine(text, style, time) {
   var t = "";
+  //replace the spaces with html space characters in this loop
   for (let i = 0; i < text.length; i++) {
     if (text.charAt(i) == " " && text.charAt(i + 1) == " ")
 		{
       t += "&nbsp;&nbsp;";
       i++;
-    } else 
-	{
+    } else {
       t += text.charAt(i);
     }
   }
-  setTimeout(function() 
-  {
+  //then for the time indicated, create a new p element
+  //add the text and style to the element and then 
+  setTimeout(function() {
     var next = document.createElement("p");
     next.innerHTML = t;
     next.className = style;
+
     before.parentNode.insertBefore(next, before);
+
     window.scrollTo(0, document.body.offsetHeight);
-  }, time);
+  }, time); //scroll the bottom of the page in set time time
 }
 
-//not sure
-function loopLines(name, style, time) 
-{
-  name.forEach(function(item, index) 
-  {
+//for each line in name array, add the line, with style
+function loopLines(name, style, time) {
+  name.forEach(function(item, index) {
     addLine(item, style, index * time);
   });
 }
