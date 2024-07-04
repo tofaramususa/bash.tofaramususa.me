@@ -1,2 +1,0 @@
-# terminal-website
-Personal Terminal
