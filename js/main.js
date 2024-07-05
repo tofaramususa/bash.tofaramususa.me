@@ -86,7 +86,7 @@ function asyncPrintLine(text, style, time) {
 	if(style === "")
 	{
 		next.style.fontSize = "0.4em"
-		next.style.textShadow = "0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700";
+		next.style.textShadow = "0 0 5px #FFA500";
 		next.style.color = "#FFA500";
 	}
     before.parentNode.insertBefore(next, before);

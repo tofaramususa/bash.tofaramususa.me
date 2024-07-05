@@ -4,7 +4,12 @@
 
 helpCommand = [
   "<br>",
-  '<span class "command">whois</span> 			Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
+  '<span class="command">intro</span> 					Who is Tofara?',
   "<br>",
 ];
 
