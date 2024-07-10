@@ -5,7 +5,7 @@ body {
 	padding: 15px 20px;
 	min-height: 99%;
 	width: 100%;
-	min-width: 550px;
+	min-width: 550px; /* Minimum width - this may be causing the window thing*/
 	color: #73ABAD; /* Gold */
 	background: #1A1A1A; /* Dark blue */
 	font-family: roboto, monospace;
@@ -71,7 +71,7 @@ body {
   
   #liner::before {
 	color: #FFA500; /* Bright green */
-	content: "user@tofaramususa.me:~$";
+	content: "root@tofaramususa.me:~$";
 
   }
   
