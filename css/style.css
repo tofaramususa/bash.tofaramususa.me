@@ -5,11 +5,29 @@ body {
 	padding: 15px 20px;
 	min-height: 99%;
 	width: 100%;
-	min-width: 550px; /* Minimum width - this may be causing the window thing */
 	color: #73ABAD; /* Gold */
 	background: #1A1A1A; /* Dark blue */
 	font-family: roboto, monospace;
 	overflow-x: hidden;
+  }
+  
+  /* Adjust font size for different screen widths */
+  @media (max-width: 1200px) {
+	body {
+	  font-size: 1.5vw;
+	}
+  }
+  
+  @media (max-width: 768px) {
+	body {
+	  font-size: 2vw;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	body {
+	  font-size: 3vw;
+	}
   }
   
   ::selection {
@@ -72,7 +90,6 @@ body {
   #liner::before {
 	color: #FFA500; /* Bright green */
 	content: "root@tofaramususa.me:~$";
-
   }
   
   #liner.password::before {
@@ -87,20 +104,38 @@ body {
 	  opacity: 1;
 	}
   }
-  
+
   p {
 	display: block;
 	line-height: 1.3em;
 	margin: 0;
 	overflow: hidden;
-	white-space: nowrap;
-	margin: 0;
+	white-space: nowrap; /* Changed from nowrap to normal */
 	letter-spacing: 0.05em;
 	animation: typing 0.5s steps(30, end);
   }
   
+  /* Ensure paragraphs are responsive */
+  @media (max-width: 1200px) {
+	p {
+	  font-size: 1.5vw;
+	}
+  }
+  
+  @media (max-width: 768px) {
+	p {
+	  font-size: 2vw;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	p {
+	  font-size: 3vw;
+	}
+  }
+  
   .no-animation {
-	animation: typing 0 steps(30, end);
+	animation: none; /* Changed from typing 0 steps(30, end) */
   }
   
   .margin {
@@ -121,7 +156,7 @@ body {
   }
   
   .color2 {
-	color:   #7FFF7F; /* Bright green */
+	color: #7FFF7F; /* Bright green */
   }
   
   .command {
@@ -130,7 +165,7 @@ body {
   }
   
   .error {
-	color:   #7FFF7F; /* Bright green for errors */
+	color: #7FFF7F; /* Bright green for errors */
   }
   
   .white {
@@ -154,3 +189,39 @@ body {
   a:focus {
 	outline: 0;
   }
+  
+  /* Custom class to reduce text size to fit within the element */
+  .reduce-text-size {
+	font-size: calc(10px + 1vw);
+  }
+  
+  /* Ensure .reduce-text-size is responsive */
+  @media (max-width: 1200px) {
+	.reduce-text-size {
+	  font-size: calc(8px + 1vw);
+	}
+  }
+  
+  @media (max-width: 768px) {
+	.reduce-text-size {
+	  font-size: calc(6px + 2vw);
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.reduce-text-size {
+	  font-size: calc(4px + 3vw);
+	}
+	@keyframes typing {
+		from {
+		  height: 0;
+		}
+		to {
+		  height: 100%;
+		}
+	  }
+	  p {
+		white-space: normal;
+	  }
+  }
+  

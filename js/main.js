@@ -101,6 +101,7 @@ function executeCommand(cmd) {
 		asyncPrintLine("Opening Linkedin profile...", "color2", 80);	
 		openNewTab(linkedin);
 		break;	
+
     default:
       asyncPrintLine("Command not found. For a list of commands enter <span class=\"command\">'help' </span>", "color2 margin", 80);
   }
